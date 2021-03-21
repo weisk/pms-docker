@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  plex:
+    container_name: plex
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    hostname: "plex.local"
+    environment:
+      - HOSTNAME=plex.local
+      - TZ=Europe/Madrid
+      - PLEX_CLAIM=claim-LPvUanZhoQkBEt2w2ANY
+      - PLEX_UID=1000
+      - PLEX_GID=1000
+      - ALLOWED_NETWORKS=192.168.1.0/24,172.16.1.0/24
+      - ADVERTISE_IP=https://192.168.1.202:32400/,https://plex.local:32400
+      - OPENSUBTITLESORG_LOGIN=weisk
+      - OPENSUBTITLESORG_PW=123456
+      - FANARTTV_TOKEN=4bb7161266da483800c17c814a4385b9
+    volumes:
+      - type: bind
+        source: ./vplex/config
+        target: /config
+      - type: bind
+        source: ./vplex/transcode
+        target: /transcode
+      - type: bind
+        source: ./vplex/data
+        target: /data
+
+
+volumes:
+  vplex:

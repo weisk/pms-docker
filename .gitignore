@@ -1,3 +1,12 @@
-docker-compose.yml
+vplex/data
+vplex/transcode
 
-test/
+vplex/config/Library/Application Support/Plex Media Server/Cache
+vplex/config/Library/Application Support/Plex Media Server/Codecs
+vplex/config/Library/Application Support/Plex Media Server/Crash Reports
+vplex/config/Library/Application Support/Plex Media Server/Logs
+vplex/config/Library/Application Support/Plex Media Server/Media
+vplex/config/Library/Application Support/Plex Media Server/Metadata
+vplex/config/Library/Application Support/Plex Media Server/Plug-in Support
+vplex/config/Library/Application Support/Plex Media Server/Plug-ins
+vplex/config/Library/Application Support/Plex Media Server/plexmediaserver.pid
